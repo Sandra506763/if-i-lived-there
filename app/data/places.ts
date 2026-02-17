@@ -67,22 +67,23 @@ export const places: Place[] = [
   {
     slug: "sylt",
     title: "Sylt",
-    subtitle: "Nordsee, Wind, salzige Luft",
+    subtitle: "Nordsee, Dünen, salzige Luft",
 
     cover: "/images/places/sylt/coverSylt.avif",
 
-    hero: "/images/places/sylt/hero.jpg",
+    hero: "/images/places/sylt/hero.avif",
 
     collage: [
-      { src: "/images/places/sylt/1.jpg", alt: "Sylt 1" },
-      { src: "/images/places/sylt/2.jpg", alt: "Sylt 2" },
-      { src: "/images/places/sylt/3.jpg", alt: "Sylt 3" },
+      { src: "/images/places/sylt/MeerSylt.avif", alt: "Sylter Meer" },
+      { src: "/images/places/sylt/StrandSylt.avif", alt: "Sylter Strand" },
+      { src: "/images/places/sylt/RobbeSylt.avif", alt: "Sylter Robbe" },
+      { src: "/images/places/sylt/HoernumHaeuserSylt.webp", alt: "Sylter Haeuser Hoernum" },
     ],
 
     day: {
       morning: "Kalter Wind, klarer Kopf.",
       noon: "Dünen, Radfahren.",
-      evening: "Sonnenuntergang.",
+      evening: "Stand-up-Paddling. Sonnenuntergang.",
       note: "18:47 – Wind im Gesicht.",
     },
   },

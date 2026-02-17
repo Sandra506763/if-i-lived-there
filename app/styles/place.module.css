@@ -16,9 +16,6 @@
   object-fit: cover;
   /* ruhig machen: weniger Sättigung + etwas dunkler */
   filter: brightness(0.82) saturate(0.88);
-
-
-
   transform: scale(1.03);
 }
 
@@ -29,7 +26,6 @@
   background:
     radial-gradient(1200px 600px at 20% 10%, rgba(0,0,0,0.35), transparent 60%),
     linear-gradient(to bottom, rgba(0,0,0,0.46), rgba(0,0,0,0.24) 40%, rgba(0,0,0,0.55));
-
 }
 
 /* feines Grain für Premium-Look */
@@ -42,6 +38,40 @@
   pointer-events: none;
 }
 
+
+/* =========================
+   Back Button (global für alle Places)
+   ========================= */
+
+   .backButton{
+    position: absolute;
+    top: 40px;
+    left: 40px;
+  
+    padding: 10px 18px;
+    font-size: 14px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  
+    color: white;
+    text-decoration: none;
+  
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 999px;
+  
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+  
+    transition: all 200ms ease;
+    z-index: 50;
+  }
+  
+  .backButton:hover{
+    background: rgba(255,255,255,0.16);
+    transform: translateY(-2px);
+  }
+  
 /* ===== CONTENT WRAP ===== */
 .content{
   width: min(1100px, calc(100% - 48px));
@@ -206,9 +236,43 @@ border: 1px solid rgba(255,255,255,0.18);
 }
 
 
-/* ===== Collage Hover (subtil) ===== */
+/* =========================
+   Sylt – warm, luftig, Text klar (Kontrast-Zone links)
+   ========================= */
+
+   .page[data-slug="sylt"] .heroImg{
+    /* warm & hell, aber noch natürlich */
+    filter: brightness(1.05) saturate(0.96) contrast(1.02);
+  }
+  
+  .page[data-slug="sylt"] .heroOverlay{
+    background:
+      /* 1) Kontrast-Zone dort, wo Titel + Card sitzen (links) */
+      radial-gradient(
+        900px 520px at 26% 22%,
+        rgba(0,0,0,0.36),
+        transparent 72%
+      ),
+      /* 2) Leichter globaler Verlauf für ruhige Bühne */
+      linear-gradient(
+        to bottom,
+        rgba(0,0,0,0.18),
+        rgba(0,0,0,0.08) 46%,
+        rgba(0,0,0,0.24)
+      );
+  }
+  
+  /* Card auf Sylt minimal stärker, damit sie nicht "wegschwimmt" */
+  .page[data-slug="sylt"] .dayCard{
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.18);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+  }
+  
 
 
+  
 
 
 

@@ -2,6 +2,7 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import styles from "@/app/styles/place.module.css";
 import { getPlace } from "../../data/places";
+import Link from "next/link";
 
 type Props = { params: { slug: string } };
 
@@ -9,15 +10,15 @@ export default function PlacePage({ params }: Props) {
   const place = getPlace(params.slug);
   if (!place) return notFound();
 
-  // Wir wollen 4 Collage-Bilder (Nightlife klein als Akzent).
-  // Falls du (noch) nur 3 hast, duplizieren wir das erste, bis 4 voll sind.
   const collage = place.collage ?? [];
   const collage4 =
-    collage.length >= 4 ? collage.slice(0, 4) : [...collage, collage[0]].slice(0, 4);
+    collage.length >= 4
+      ? collage.slice(0, 4)
+      : [...collage, ...collage].slice(0, 4);
 
   return (
-    <main className={styles.page}>
-      {/* Soft Hero Background über die ganze Seite */}
+    <main className={styles.page} data-slug={place.slug}>
+      {/* Hero Background */}
       <div className={styles.heroBg} aria-hidden="true">
         <Image
           src={place.hero}
@@ -32,6 +33,9 @@ export default function PlacePage({ params }: Props) {
       </div>
 
       <section className={styles.content}>
+      <Link href="/view" className={styles.backButton}>
+  ← Back
+</Link>
         <header className={styles.header}>
           <p className={styles.kicker}>Place</p>
           <h1 className={styles.title}>{place.title}</h1>
@@ -39,7 +43,6 @@ export default function PlacePage({ params }: Props) {
         </header>
 
         <div className={styles.grid}>
-          {/* Textblock (klar wie Variante 3) */}
           <div className={styles.textBlock}>
             <div className={styles.dayCard}>
               <div className={styles.row}>
@@ -64,7 +67,6 @@ export default function PlacePage({ params }: Props) {
             </div>
           </div>
 
-          {/* Collage (hip, aber ruhig) */}
           <div className={styles.collageWrap}>
             <div className={styles.collage}>
               {collage4.map((img, idx) => (

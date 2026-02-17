@@ -36,7 +36,7 @@ export const places: Place[] = [
     day: {
       morning: "Früher Kaffee, Barfuß am Strand, langsam ankommen.",
       noon: "Märkte, Schatten suchen, treiben lassen.",
-      evening: "Golden Hour, köstliche Essen geniessen.",
+      evening: "Golden Hour, köstliches Essen geniessen.",
       note: "07:30 – Kaffee & Meerblick.",
     },
   },
@@ -48,19 +48,20 @@ export const places: Place[] = [
 
     cover: "/images/places/lofoten/coverLofoten.avif",
 
-    hero: "/images/places/lofoten/hero.jpg",
+    hero: "/images/places/lofoten/hero.avif",
 
     collage: [
-      { src: "/images/places/lofoten/1.jpg", alt: "Lofoten 1" },
-      { src: "/images/places/lofoten/2.jpg", alt: "Lofoten 2" },
-      { src: "/images/places/lofoten/3.jpg", alt: "Lofoten 3" },
+      { src: "/images/places/lofoten/FischerdorfLofoten.avif", alt: "Fischerdorf Lofoten" },
+      { src: "/images/places/lofoten/InselnLofoten.avif", alt: "Inseln Lofoten" },
+      { src: "/images/places/lofoten/WalLofoten.avif", alt: "Wal Lofoten" },
+      { src: "/images/places/lofoten/LofotenTagsüber.avif", alt: "Lofoten bei Tag" },
     ],
 
     day: {
-      morning: "Tee, Blick aufs Wasser.",
-      noon: "Wandern, klare Luft.",
-      evening: "Lichter im Fenster.",
-      note: "16:12 – Stille ist hier ein Ort.",
+      morning: "Kaffee, Blick auf´s Wasser.",
+      noon: "Wandern, klare Luft. Fischerdorf.",
+      evening: "Polarlichter. Tee.",
+      note: "16:12 – Stille ist hier ein Lebensgefühl.",
     },
   },
 

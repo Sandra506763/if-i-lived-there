@@ -15,7 +15,10 @@
 .heroImg{
   object-fit: cover;
   /* ruhig machen: weniger Sättigung + etwas dunkler */
-  filter: brightness(0.72) saturate(0.82);
+  filter: brightness(0.82) saturate(0.88);
+
+
+
   transform: scale(1.03);
 }
 
@@ -25,7 +28,8 @@
   /* ruhige Bühne + Lesbarkeit */
   background:
     radial-gradient(1200px 600px at 20% 10%, rgba(0,0,0,0.35), transparent 60%),
-    linear-gradient(to bottom, rgba(0,0,0,0.58), rgba(0,0,0,0.34) 40%, rgba(0,0,0,0.70));
+    linear-gradient(to bottom, rgba(0,0,0,0.46), rgba(0,0,0,0.24) 40%, rgba(0,0,0,0.55));
+
 }
 
 /* feines Grain für Premium-Look */
@@ -59,7 +63,7 @@
 }
 
 .title{
-  font-size: clamp(38px, 6vw, 64px);
+    font-size: clamp(44px, 7vw, 72px);
   line-height: 1.02;
   margin: 0;
 }
@@ -82,11 +86,13 @@
 .dayCard{
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  background: rgba(255,255,255,0.06);
-  border: 1px solid rgba(255,255,255,0.14);
+  
   border-radius: 18px;
   padding: 18px 18px 14px;
   box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+  background: rgba(255,255,255,0.08);
+border: 1px solid rgba(255,255,255,0.18);
+
 }
 
 .row{
@@ -130,6 +136,12 @@
   border-radius: 999px;
   background: rgba(255,255,255,0.85);
   box-shadow: 0 0 0 6px rgba(255,255,255,0.08);
+  animation: pulse 2.8s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%,100% { transform: scale(1); opacity: .9; }
+  50% { transform: scale(1.2); opacity: 1; }
 }
 
 .noteText{
@@ -139,7 +151,10 @@
 }
 
 /* ===== COLLAGE ===== */
-.collageWrap{ position: relative; }
+.collageWrap{ position: relative; 
+  margin-left: -24px;
+}
+
 
 .collage{
   position: relative;
@@ -152,6 +167,21 @@
   overflow: hidden;
   border: 1px solid rgba(255,255,255,0.16);
   box-shadow: 0 28px 70px rgba(0,0,0,0.32);
+  transition: transform 220ms ease, box-shadow 220ms ease, filter 220ms ease, opacity 220ms ease;
+  will-change: transform;
+}
+
+.collage:hover figure{
+  opacity: 0.88;
+  filter: saturate(0.98) contrast(1.0);
+}
+
+.collage figure:hover{
+  opacity: 1;
+  transform: translateY(-8px) scale(1.03) rotate(0deg);
+  box-shadow: 0 34px 90px rgba(0,0,0,0.38);
+  filter: saturate(1.06) contrast(1.03);
+  z-index: 20;
 }
 
 .tileImg{
@@ -174,6 +204,16 @@
   border-radius: 18px;
   opacity: .5;
 }
+
+
+/* ===== Collage Hover (subtil) ===== */
+
+
+
+
+
+
+
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px){

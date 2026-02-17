@@ -1,10 +1,91 @@
-.page {
-  width: min(1180px, 92vw);
-  margin: 0 auto;
+
+.page{
+  position: relative;
+  min-height: 100vh;
 }
-.caveat {
-  font-family: var(--font-caveat);
+
+/* ALLES was du siehst (Header + Cards) liegt darüber */
+.contentLayer{
+  position: relative;
+  z-index: 1;
 }
+
+/* Background muss NICHT negativ sein, sonst verschwindet er hinter body */
+
+.bg{
+  position: fixed;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+
+  /* AIR: warmes Off-White + ultra-zarte Nebel in Petrol/Graublau */
+  background:
+    /* oben: “Luft” / Haze */
+    radial-gradient(
+      1600px 900px at 50% -10%,
+      rgba(255, 255, 255, 0.85),
+      transparent 60%
+    ),
+
+    /* links: entsättigtes Petrol (sehr sanft) */
+    radial-gradient(
+      1200px 700px at 18% 22%,
+      rgba(20, 90, 88, 0.10),
+      transparent 62%
+    ),
+
+    /* rechts: gebrochenes Grau-Blau (sanft) */
+    radial-gradient(
+      1200px 700px at 82% 22%,
+      rgba(70, 86, 102, 0.09),
+      transparent 62%
+    ),
+
+    /* “Horizon”-Andeutung: unten minimal dichter, aber NICHT dunkel */
+    linear-gradient(
+      to bottom,
+      rgba(248, 246, 241, 0.95),
+      rgba(242, 239, 233, 0.92) 55%,
+      rgba(226, 226, 223, 0.90) 78%,
+      rgba(214, 216, 215, 0.88)
+    );
+
+  /* weiter weg / weniger Struktur */
+  filter: blur(26px) saturate(0.85);
+  transform: scale(1.06);
+
+  /* wichtig: NICHT abdunkeln */
+  mix-blend-mode: normal;
+  opacity: 1;
+}
+/* optionales Grain nur für /view */
+.grain{
+  position: fixed;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
+}
+
+.title {
+  margin: 0;
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: 1.05;
+
+  /* WICHTIG: NICHT schief */
+  transform: none;
+
+  /* clean & modern */
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  color: rgba(0, 0, 0, 0.92);
+  text-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+}
+
+   
 
 .header {
   display: flex;
@@ -21,25 +102,6 @@
   margin-top: 30px;
 }
 
-.meta {
-  margin: 0 0 14px;
-  font-size: 12px;
-  letter-spacing: 0.24em;
-  text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.4);
-}
-
-.title {
-  margin: 0;
-  font-size: clamp(48px, 6vw, 86px);
-  line-height: 1.05;
-  font-weight: 400;
-  letter-spacing: 0.01em;
-  text-transform: none;
-  color: rgba(0, 0, 0, 0.92);
-  text-shadow: 0 12px 35px rgba(0, 0, 0, 0.12);
-  transform: rotate(-1deg);
-}
 
 .titleAccent {
   margin: 8px 0 0;
@@ -52,13 +114,6 @@
   font-style: italic;
 }
 
-.kicker {
-  margin: 10px 0 0;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  font-size: 12px;
-  color: rgba(0, 0, 0, 0.45);
-}
 
 .note {
   margin: 10px 0 0;
@@ -287,10 +342,7 @@
     opacity: 0.28;
   }
 
-  .metaRow {
-    flex-direction: column;
-    align-items: flex-start;
-  }
+  
   .line {
     width: 120px;
   }

@@ -1,17 +1,15 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
-import { Playfair_Display, Caveat } from "next/font/google";
-
-export const caveat = Caveat({
-  subsets: ["latin"],
-  weight: ["400"],
-});
-
+import { Inter, Caveat } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
+});
+
+const caveat = Caveat({
+  subsets: ["latin"],
+  variable: "--font-caveat",
 });
 
 export const metadata: Metadata = {
@@ -25,8 +23,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de">
-      <body className={inter.variable}>{children}</body>
+    <html lang="de" className={`${inter.variable} ${caveat.variable}`}>
+      <body>{children}</body>
     </html>
   );
 }

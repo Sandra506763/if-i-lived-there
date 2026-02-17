@@ -2,6 +2,9 @@
   width: min(1180px, 92vw);
   margin: 0 auto;
 }
+.caveat {
+  font-family: var(--font-caveat);
+}
 
 .header {
   display: flex;

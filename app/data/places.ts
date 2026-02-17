@@ -17,23 +17,26 @@ export const places: Place[] = [
   {
     slug: "thailand",
     title: "Thailand",
-    subtitle: "warm, leicht, salzige Luft",
+    subtitle: "warm, leicht, Sonne",
 
     // 👇 WICHTIG – hier dein neuer Dateiname
     cover: "/images/places/thailand/coverThailand.avif",
 
-    hero: "/images/places/thailand/hero.jpg",
+    hero: "/images/places/thailand/hero.avif",
 
     collage: [
-      { src: "/images/places/thailand/1.jpg", alt: "Thailand 1" },
-      { src: "/images/places/thailand/2.jpg", alt: "Thailand 2" },
-      { src: "/images/places/thailand/3.jpg", alt: "Thailand 3" },
+      { src: "/images/places/thailand/ElefantenThailand.webp", alt: "Thailand Elefant" },
+      { src: "/images/places/thailand/RotesThaiCurryThailand.webp", alt: "Thailand Essen" },
+      { src: "/images/places/thailand/MeerThailand.webp", alt: "Thailand Meer" },
+      { src: "/images/places/thailand/StadtThailand.avif", alt: "Thailand Nachtleben" },
+      { src: "/images/places/thailand/TempelThailand.avif", alt: "Thailand Nachtleben" },
     ],
+    
 
     day: {
-      morning: "Früher Kaffee, Barfuß, langsam ankommen.",
+      morning: "Früher Kaffee, Barfuß am Strand, langsam ankommen.",
       noon: "Märkte, Schatten suchen, treiben lassen.",
-      evening: "Golden Hour, ein langer Spaziergang.",
+      evening: "Golden Hour, köstliche Essen geniessen.",
       note: "07:30 – Kaffee & Meerblick.",
     },
   },
@@ -64,7 +67,7 @@ export const places: Place[] = [
   {
     slug: "sylt",
     title: "Sylt",
-    subtitle: "Nordsee, Wind, Weite",
+    subtitle: "Nordsee, Wind, salzige Luft",
 
     cover: "/images/places/sylt/coverSylt.avif",
 

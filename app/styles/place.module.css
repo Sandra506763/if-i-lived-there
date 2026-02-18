@@ -74,6 +74,7 @@
   width: min(1100px, calc(100% - 48px));
   margin: 0 auto;
   padding: 72px 0 80px;
+  padding-top: clamp(90px, 12vh, 160px);
 }
 
 .header {
@@ -384,9 +385,7 @@
 
 /* ===== RESPONSIVE ===== */
 @media (max-width: 900px) {
-  .content {
-    padding: 56px 0 64px;
-  }
+
   .grid {
     grid-template-columns: 1fr;
   }

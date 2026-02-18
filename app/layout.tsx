@@ -4,12 +4,13 @@ import { Inter, Caveat } from "next/font/google";
 
 const inter = Inter({
   subsets: ["latin"],
-  variable: "--font-inter",
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
 });
 
 const caveat = Caveat({
   subsets: ["latin"],
-  variable: "--font-caveat",
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -23,8 +24,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="de" className={`${inter.variable} ${caveat.variable}`}>
-      <body>{children}</body>
+    <html lang="de">
+      <body className={inter.className}>
+        {children}
+      </body>
     </html>
   );
 }

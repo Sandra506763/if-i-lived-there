@@ -5,7 +5,7 @@
   color: rgba(255, 255, 255, 0.92);
 }
 
-/* ===== HERO BACKGROUND ===== */
+
 .heroBg {
   position: fixed;
   inset: 0;
@@ -14,16 +14,14 @@
 
 .heroImg {
   object-fit: cover;
-  /* ruhig machen: weniger Sättigung + etwas dunkler */
-  filter: brightness(0.82) saturate(0.88);
+   filter: brightness(0.82) saturate(0.88);
   transform: scale(1.03);
 }
 
 .heroOverlay {
   position: absolute;
   inset: 0;
-  /* ruhige Bühne + Lesbarkeit */
-  background: radial-gradient(
+   background: radial-gradient(
       1200px 600px at 20% 10%,
       rgba(0, 0, 0, 0.35),
       transparent 60%
@@ -36,7 +34,7 @@
     );
 }
 
-/* feines Grain für Premium-Look */
+
 .heroGrain {
   position: absolute;
   inset: 0;
@@ -46,30 +44,22 @@
   pointer-events: none;
 }
 
-/* =========================
-   Back Button (global für alle Places)
-   ========================= */
 
 .backButton {
   position: absolute;
   top: 40px;
   left: 40px;
-
   padding: 10px 18px;
   font-size: 14px;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-
   color: white;
   text-decoration: none;
-
   background: rgba(255, 255, 255, 0.08);
   border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 999px;
-
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-
   transition: all 200ms ease;
   z-index: 50;
 }
@@ -79,7 +69,7 @@
   transform: translateY(-2px);
 }
 
-/* ===== CONTENT WRAP ===== */
+
 .content {
   width: min(1100px, calc(100% - 48px));
   margin: 0 auto;
@@ -136,7 +126,7 @@
   opacity: 0.85;
 }
 
-/* ===== GRID ===== */
+
 .grid {
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
@@ -144,7 +134,6 @@
   align-items: start;
 }
 
-/* ===== TEXT CARD ===== */
 .dayCard {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -218,7 +207,6 @@
   opacity: 0.9;
 }
 
-/* ===== COLLAGE ===== */
 .collageWrap {
   position: relative;
   margin-left: -24px;
@@ -259,7 +247,7 @@
   filter: contrast(1.02) saturate(1.02);
 }
 
-/* Hierarchie: 1 groß ruhig, 4 klein (Nightlife-Akzent) */
+
 .tile1 {
   left: 0;
   top: 18px;
@@ -294,7 +282,7 @@
   opacity: 0.92;
 }
 
-/* ===== subtle readability fade ===== */
+
 .bottomFade {
   height: 60px;
   margin-top: 28px;
@@ -303,23 +291,22 @@
   opacity: 0.5;
 }
 
-/* =========================
-   Sylt – warm, luftig, Text klar (Kontrast-Zone links)
-   ========================= */
+/* 
+   Sylt 
+*/
 
 .page[data-slug="sylt"] .heroImg {
-  /* warm & hell, aber noch natürlich */
   filter: brightness(1.05) saturate(0.96) contrast(1.02);
 }
 
 .page[data-slug="sylt"] .heroOverlay {
   background:
-      /* 1) Kontrast-Zone dort, wo Titel + Card sitzen (links) */ radial-gradient(
+    radial-gradient(
       900px 520px at 26% 22%,
       rgba(0, 0, 0, 0.36),
       transparent 72%
     ),
-    /* 2) Leichter globaler Verlauf für ruhige Bühne */
+   
       linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.18),
@@ -328,36 +315,35 @@
       );
 }
 
-/* Card auf Sylt minimal stärker, damit sie nicht "wegschwimmt" */
+
 .page[data-slug="sylt"] .dayCard {
   background: rgba(255, 255, 255, 0.14);
   border: 1px solid rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 }
-/* =========================
-   Lofoten – Scandinavian Luxury FINAL
-   ========================= */
+/* 
+   Lofoten
+   */
 
 .page[data-slug="lofoten"] .heroImg {
-  /* weniger Drama, mehr Editorial */
   filter: brightness(0.8) saturate(1.05) contrast(1.15);
 }
 
 .page[data-slug="lofoten"] .heroOverlay {
   background:
-    /* Kontrast-Zone für Text (links) */ radial-gradient(
+    radial-gradient(
       900px 520px at 26% 24%,
       rgba(0, 0, 0, 0.42),
       transparent 76%
     ),
-    /* sehr subtiler petrol tone (luxury) */
+
       radial-gradient(
         1400px 800px at 70% 0%,
         rgba(0, 90, 110, 0.08),
         transparent 66%
       ),
-    /* unten tiefer – Berg verschmilzt */
+   
       linear-gradient(
         to bottom,
         rgba(0, 0, 0, 0.22),
@@ -366,7 +352,7 @@
       );
 }
 
-/* Stage fast unsichtbar machen */
+
 .page[data-slug="lofoten"] .header::before {
   inset: -34px -100px -34px -100px;
   border-radius: 100px;
@@ -381,7 +367,7 @@
   opacity: 0.75;
 }
 
-/* Dunkles Glas – Luxus */
+
 .page[data-slug="lofoten"] .dayCard {
   background: rgba(10, 18, 22, 0.44);
   border: 1px solid rgba(255, 255, 255, 0.12);

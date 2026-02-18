@@ -9,12 +9,13 @@ export default function ViewPage() {
     .filter(Boolean);
 
   return (
-    <main className={`container ${styles.page}`}>
-      {/* Background Layers (müssen über body liegen) */}
+<main className={styles.page}>
+
+
       <div className={styles.bg} aria-hidden="true" />
       <div className={styles.grain} aria-hidden="true" />
 
-      {/* Inhalt bekommt höhere Ebene */}
+    
       <div className={styles.contentLayer}>
         <header className={styles.header}>
           <Link href="/" className={styles.back}>

@@ -1,91 +1,90 @@
-
-.page{
+.page {
   position: relative;
   min-height: 100vh;
+  background: linear-gradient(180deg, #edf4f6 0%, #e6eeef 100%);
 }
-
-/* ALLES was du siehst (Header + Cards) liegt darüber */
-.contentLayer{
-  position: relative;
-  z-index: 1;
-}
-
-/* Background muss NICHT negativ sein, sonst verschwindet er hinter body */
-
-.bg{
+.page::before {
+  content: "";
   position: fixed;
   inset: 0;
-  z-index: 1;
+  pointer-events: none;
+  z-index: 0;
+
+  background: radial-gradient(
+    1200px 600px at 50% -10%,
+    rgba(255, 255, 255, 0.6),
+    transparent 70%
+  );
+}
+
+.page::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background: radial-gradient(
+    circle at 50% 30%,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.08) 100%
+  );
+  z-index: 0;
+}
+
+.contentLayer {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 6vh 24px 10vh;
+}
+
+.bg {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
   pointer-events: none;
 
-  /* AIR: warmes Off-White + ultra-zarte Nebel in Petrol/Graublau */
-  background:
-    /* oben: “Luft” / Haze */
-    radial-gradient(
-      1600px 900px at 50% -10%,
-      rgba(255, 255, 255, 0.85),
+
+  background: radial-gradient(
+      900px 600px at 18% 12%,
+      rgba(35, 96, 105, 0.12),
       transparent 60%
     ),
-
-    /* links: entsättigtes Petrol (sehr sanft) */
     radial-gradient(
-      1200px 700px at 18% 22%,
-      rgba(20, 90, 88, 0.10),
-      transparent 62%
+      800px 520px at 82% 22%,
+      rgba(55, 90, 120, 0.1),
+      transparent 58%
     ),
-
-    /* rechts: gebrochenes Grau-Blau (sanft) */
     radial-gradient(
-      1200px 700px at 82% 22%,
-      rgba(70, 86, 102, 0.09),
+      700px 520px at 50% 85%,
+      rgba(20, 60, 70, 0.06),
       transparent 62%
-    ),
-
-    /* “Horizon”-Andeutung: unten minimal dichter, aber NICHT dunkel */
-    linear-gradient(
-      to bottom,
-      rgba(248, 246, 241, 0.95),
-      rgba(242, 239, 233, 0.92) 55%,
-      rgba(226, 226, 223, 0.90) 78%,
-      rgba(214, 216, 215, 0.88)
     );
 
-  /* weiter weg / weniger Struktur */
-  filter: blur(26px) saturate(0.85);
+  filter: blur(26px) saturate(0.9);
   transform: scale(1.06);
-
-  /* wichtig: NICHT abdunkeln */
-  mix-blend-mode: normal;
   opacity: 1;
 }
-/* optionales Grain nur für /view */
-.grain{
+
+.grain {
   position: fixed;
   inset: 0;
-  z-index: 2;
+  z-index: 1;
   pointer-events: none;
-
   opacity: 0.05;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
   mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
 }
-
 .title {
   margin: 0;
-  font-size: clamp(48px, 6vw, 86px);
+  font-size: clamp(28px, 4.6vw, 66px);
   line-height: 1.05;
-
-  /* WICHTIG: NICHT schief */
   transform: none;
-
-  /* clean & modern */
-  font-weight: 700;
-  letter-spacing: -0.02em;
   color: rgba(0, 0, 0, 0.92);
-  text-shadow: 0 12px 35px rgba(0, 0, 0, 0.10);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  text-shadow: none;
 }
-
-   
 
 .header {
   display: flex;
@@ -102,7 +101,6 @@
   margin-top: 30px;
 }
 
-
 .titleAccent {
   margin: 8px 0 0;
   font-size: clamp(18px, 2.1vw, 22px);
@@ -113,7 +111,6 @@
     serif;
   font-style: italic;
 }
-
 
 .note {
   margin: 10px 0 0;
@@ -150,14 +147,14 @@
   padding: 10px 14px;
   border-radius: 999px;
   border: 1px solid rgba(0, 0, 0, 0.08);
-  background: rgba(255, 255, 255, 0.55);
-  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(6px);
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   font-size: 11px;
   transition: transform 160ms ease, box-shadow 160ms ease;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.08);
 }
 
 .back::before {
@@ -342,7 +339,6 @@
     opacity: 0.28;
   }
 
-  
   .line {
     width: 120px;
   }

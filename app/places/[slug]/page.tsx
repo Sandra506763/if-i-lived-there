@@ -18,7 +18,7 @@ export default function PlacePage({ params }: Props) {
 
   return (
     <main className={styles.page} data-slug={place.slug}>
-      {/* Hero Background */}
+  
       <div className={styles.heroBg} aria-hidden="true">
         <Image
           src={place.hero}
